@@ -1,7 +1,7 @@
 from myServerPage import MyServerPage
 from locators import Locators
 
-driver_my_server = MyServerPage()
+driver_my_server = MyServerPage("your path")
 
 driver_my_server.get_web_page("https://myserver.gg/es")
 
