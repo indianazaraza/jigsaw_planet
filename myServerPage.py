@@ -9,10 +9,13 @@ from selenium.webdriver.common.keys import Keys
 class MyServerPage():
 	"""Base class
 	"""
-	def __init__(self):
+	def __init__(self, driver_path):
 		"""Initialize an driver
+
+		:param driver_path: path to locate your webdriver
+		:type driver_path: str
 		"""
-		path = Service("/home/maca/chromedriver")
+		path = Service(driver_path)
 		chrome_options = Options()
 		chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
 		self.driver = Chrome(service=path, options=chrome_options)
@@ -23,7 +26,7 @@ class MyServerPage():
 		"""Get a web page given an url
 
 		:param url: url of a web page
-		:type value: string
+		:type url: string
 		"""
 		self.driver.get(url)
 
@@ -43,9 +46,9 @@ class MyServerPage():
 		"""Given a word send keys to given an element
 
 		:param element: an element of a web page
-		:type value: webdriver
+		:type element: webdriver
 		:param word: a word
-		:type value: str
+		:type word: str
 		"""
 		element.send_keys(word)
 		
@@ -54,7 +57,7 @@ class MyServerPage():
 		"""Clicks on the given element 
 
 		:param element: an element of a web page
-		:type value: webdriver
+		:type element: webdriver
 		"""
 		element.click()
 
