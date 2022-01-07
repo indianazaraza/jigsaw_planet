@@ -4,7 +4,6 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.common.keys import Keys
 
 class MyServerPage():
 	"""Base class
@@ -29,36 +28,28 @@ class MyServerPage():
 		:type url: string
 		"""
 		self.driver.get(url)
+	
 
-
-	def get_element(self, locator):
-		"""Find an element on the actual page given a locator
+	def click_and_send_keys(self, locator, word):
+		"""Given a word send keys to an element given a locator
 
 		:param locator: attribute or path of the element to locate
 		:type locator: tuple
-		:rtype: webdriver	
-		:return: an element of a web page 
-		"""
-		return self.driver.find_element(*locator)
-		
-
-	def send_keys(self, element, word):
-		"""Given a word send keys to given an element
-
-		:param element: an element of a web page
-		:type element: webdriver
 		:param word: a word
 		:type word: str
 		"""
+		element = self.driver.find_element(*locator)
+		element.click()
 		element.send_keys(word)
 		
 		
-	def click(self, element):
-		"""Clicks on the given element 
+	def click(self, locator):
+		"""Clicks on an element given a locator
 
-		:param element: an element of a web page
-		:type element: webdriver
+		:param locator: attribute or path of the element to locate
+		:type locator: tuple
 		"""
+		element = self.driver.find_element(*locator)
 		element.click()
 
 
