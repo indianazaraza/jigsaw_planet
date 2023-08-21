@@ -12,6 +12,6 @@ def setup(request):
     path: Service = Service("/home/maca/chromedriver")
     driver: Chrome = Chrome(service=path, options=chrome_options)
     request.cls.driver = driver
-    driver.get("https://myserver.gg")
+    driver.get("https://www.jigsawplanet.com/")
     yield driver
     driver.quit()
