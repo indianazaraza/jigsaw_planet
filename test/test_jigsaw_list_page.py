@@ -3,7 +3,7 @@ from main.pages.home_page import HomePage
 
 
 @pytest.mark.usefixtures("setup")
-class TestHomePage:
+class TestJigsawListePage:
 
     def test_search_jigsaw_by_category(self):
         category = "simpsons"
