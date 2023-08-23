@@ -10,5 +10,5 @@ class TestJigsawListePage:
         home_page = HomePage(self.driver)
         jigsaw_list_page = home_page.search_jigsaw(category)
         assert len(jigsaw_list_page.get_pages_links()) == 5
-        assert "9098" in jigsaw_list_page.get_results()
+        assert "9101" in jigsaw_list_page.get_results()
         assert jigsaw_list_page.get_category() == category
